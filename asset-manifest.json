@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sparwk-timeline-demo/static/css/main.73e51b76.chunk.css",
+    "main.js": "/sparwk-timeline-demo/static/js/main.01af64f0.chunk.js",
+    "main.js.map": "/sparwk-timeline-demo/static/js/main.01af64f0.chunk.js.map",
+    "runtime-main.js": "/sparwk-timeline-demo/static/js/runtime-main.c2e1a948.js",
+    "runtime-main.js.map": "/sparwk-timeline-demo/static/js/runtime-main.c2e1a948.js.map",
+    "static/js/2.ecd15f83.chunk.js": "/sparwk-timeline-demo/static/js/2.ecd15f83.chunk.js",
+    "static/js/2.ecd15f83.chunk.js.map": "/sparwk-timeline-demo/static/js/2.ecd15f83.chunk.js.map",
+    "static/js/3.d9db4377.chunk.js": "/sparwk-timeline-demo/static/js/3.d9db4377.chunk.js",
+    "static/js/3.d9db4377.chunk.js.map": "/sparwk-timeline-demo/static/js/3.d9db4377.chunk.js.map",
+    "index.html": "/sparwk-timeline-demo/index.html",
+    "static/css/main.73e51b76.chunk.css.map": "/sparwk-timeline-demo/static/css/main.73e51b76.chunk.css.map",
+    "static/js/2.ecd15f83.chunk.js.LICENSE.txt": "/sparwk-timeline-demo/static/js/2.ecd15f83.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/sparwk-timeline-demo/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c2e1a948.js",
+    "static/js/2.ecd15f83.chunk.js",
+    "static/css/main.73e51b76.chunk.css",
+    "static/js/main.01af64f0.chunk.js"
+  ]
+}
