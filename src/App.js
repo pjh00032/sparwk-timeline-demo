@@ -24,7 +24,7 @@ class App extends React.Component{
                 color : "#fcd804"
             }
             ],
-            inputText : ''
+            inputText : 0
         }
 
     }
@@ -38,56 +38,58 @@ class App extends React.Component{
         let day = '';
         let color = '';
 
-        let newEvents = [];
+        if(!isNaN(this.state.inputText)){
+            let newEvents = [];
 
-        console.log(today);
-        let num = 0;
-        while(num<=1000) {
-            if(num%2 === 0){
-                color = "#fcd804";
-                time = new Date(today.setTime(today.getTime()+1));
+            let num = 0;
+            while(num<=this.state.inputText) {
+                if(num%2 === 0){
+                    color = "#fcd804";
+                    time = new Date(today.setTime(today.getTime()+1));
+                }
+                else
+                {
+                    color = "#0aaf0c";
+                    time = new Date(today.setDate(today.getDate()+1));
+                }
+                date = time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear();
+                day = time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear() + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + ":" + time.getMilliseconds();
+
+
+
+                newEvents.push({
+                    date : date,
+                    dateString: day,
+                    event: num,
+                    color: color
+                })
+
+                num++;
             }
-            else
-            {
-                color = "#0aaf0c";
-                time = new Date(today.setDate(today.getDate()+1));
-            }
-            date = time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear();
-            day = time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear() + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + ":" + time.getMilliseconds();
 
+            const { events } = this.state;
 
-
-            newEvents.push({
-                date : date,
-                dateString: day,
-                event: num,
-                color: color
+            this.setState({
+                events: events.concat(newEvents)
             })
-
-            num++;
+        }else
+        {
+            alert("숫자를 입력해주시기 바랍니다.");
         }
-        console.log(newEvents);
 
-        const { events } = this.state;
 
-        this.setState({
-            events: events.concat(newEvents)
-        })
-/*
-        this.setState({newEvent : newEvents});
 
-        console.log(this.state.newEvent);*/
-    }
-
-    onChangeEvents = () => {
-
-        console.log(this.state.newEvent.entries() );
-
-        /*this.setState({events : [...this.state.events, this.state.newEvent ]});*/
     }
 
     onInputTextChange = (e) => {
         this.setState({inputText : e.target.value})
+    }
+
+    maxLengthCheck= (e) => {
+        if (e.target.value.length > e.target.maxLength){
+            //object.maxLength : 매게변수 오브젝트의 maxlength 속성 값입니다.
+            e.target.value = e.target.value.slice(0, e.target.maxLength);
+        }
     }
 
     addDate = (day) => {
@@ -107,10 +109,15 @@ render(){
     return (
         <div>
             <div style={{height:100}}>
-                <input type={"text"} value = {this.state.inputText} onChange={this.onInputTextChange}/>
-                <button onClick={this.onAddTileLine}>입력 버튼 </button>
-                <button onClick={this.onChangeEvents}>event Change </button>
+                <span>
+                    Enter the number to add of timeline :&nbsp;
+                </span>
+
+                <input type={"number"} value = {this.state.inputText} onChange={this.onInputTextChange} maxLength={5} onInput={this.maxLengthCheck}/>
+                &nbsp;
+                <button onClick={this.onAddTileLine}> add timeline </button>
             </div>
+
             <div
                 className="App"
                 style={{ fontFamily: "Trebuchet Ms" }}
@@ -129,7 +136,7 @@ render(){
 
                         if(addDateComment === event.date){
                             return (
-                                <VerticalTimelineElement    
+                                <VerticalTimelineElement
                                     date={event.date}
                                     icon={ <a></a> }
                                     iconStyle={{ background: event.color}}
