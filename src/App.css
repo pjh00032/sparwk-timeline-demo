@@ -60,7 +60,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 18px;
+  left: 60px;
   height: 100%;
   width: 1px;
   background: #636666;
@@ -222,7 +222,8 @@
 }
 .vertical-timeline-element-content {
   position: relative;
-  margin-left: 150px;
+  margin-left: 200px;
+  margin-right: 50px;
   background: #1d1c1c08;
   border-radius: 0.25em;
   padding: 1em;
